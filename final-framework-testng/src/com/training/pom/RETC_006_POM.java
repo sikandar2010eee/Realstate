@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class RETC_006_POM {
 	
@@ -15,45 +16,25 @@ private WebDriver driver;
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(xpath="//ul[@id='responsive']//a[@class='sign-in']")
-	private WebElement login; 
-	
-	@FindBy(xpath="//input[@id='user_login']")
-	private WebElement username;
-	
-	@FindBy(xpath="//input[@id='user_pass']")
-	private WebElement password;
-	
-	@FindBy(xpath="//input[@value='Sign In']")
-	private WebElement SignIn;
-	
+/*This POM file consists of consist of WebElement and methods needed to logout from the realstate application after user has 
+ * successfully logged in 
+ */
 	@FindBy(linkText="Log Out")
 	private WebElement LogOut;
 	
-	
-	public void LogInClick() {
-		
-		this.login.click();
-	}
-	
-	public void sendUserName(String username) {
-		this.username.clear(); 
-		this.username.sendKeys(username); 
-	}
-	
-	public void SendPassWord(String password) {
-		this.password.clear();
-		this.password.sendKeys(password);
-	}
-	
-	public void ClickOnSignInIn() {
-		SignIn.click();
-	}
-	
+	@FindBy(name="log")
+	private WebElement LogOutSuccess;
 	
 	public void ClickOnLogOut() {
 		this.LogOut.click();
+		
+	}
+	//This method will verify whether user has logged out or not from the realstate application
+	public void VerfiyLogOut() {
+		String expected="";
+		String actual= driver.findElement(By.name("log")).getText();
+		Assert.assertEquals(actual, expected);
+		
 	}
 		
 	

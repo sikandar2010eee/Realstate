@@ -1,9 +1,13 @@
 package com.training.pom;
 
+import static org.testng.Assert.assertEquals;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class RETC_008_POM {
 	
@@ -13,14 +17,12 @@ private WebDriver driver;
 		this.driver = driver; 
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(linkText="APARTMENTS")
-	private WebElement ApartmentTab; 
-	
-	
-	@FindBy(xpath="//div[@data-title='RETC_051_3']/a")
-	private WebElement  DoneQuis;
-	
+	/*
+	 * This POM file consist of WebElement and methods to calculate Mortgage  in the Mortgage claculator section of the
+	 * realstate application and assertion to verify calculated value returned.
+	 * received.
+	 */
+		
 	@FindBy(xpath="//div[@class='calc-input']//input[@id='amount']")
 	private WebElement Salesprice;
 	
@@ -39,17 +41,8 @@ private WebDriver driver;
 	@FindBy(xpath="//button[@class='button calc-button']")
 	private WebElement CalculateButton;//need to write method to click on send button
 	
-	
-	public void ClickOnApartmentTab() {
-		
-		this.ApartmentTab.click();
-	}
-	
-public void ClickOnDoneQuisTab() {
-		
-		this.DoneQuis.click();
-	}
-
+	@FindBy(xpath="//div[@class='notification success']")
+	private WebElement SuccessMsg;
 	
 	public void sendSalesprice(String name) {
 		this.Salesprice.clear(); 
@@ -68,7 +61,20 @@ public void ClickOnDoneQuisTab() {
 		this.Interestrate.sendKeys(rate);
 	}
 	public void ClickOnCalculateButton() {
-		this.CalculateButton.click();
+		this.CalculateButton.click(); 
 	}
+	public void VerifyAssertion() {
+		
+		////div[contains(text(),'Monthly Payment: ')]/strong
+		String Constantmsg="Monthly Payment: ";
+		String paymentamount=driver.findElement(By.xpath("//div[contains(text(),'Monthly Payment: ')]/strong")).getText();
+		System.out.println(paymentamount);
+		String Actual=Constantmsg+paymentamount;
+		String Expected=this.SuccessMsg.getText();
+		Assert.assertEquals(Actual, Expected);
+		
+	}
+	
+	
 
 }

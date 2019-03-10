@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
+import com.training.pom.RETC_007_POM;
 import com.training.pom.RETC_010_POM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
@@ -20,6 +21,7 @@ public class RETC_010_Test {
 	private WebDriver driver;
 	private String baseUrl;
 	private RETC_010_POM RETC_010;
+	private RETC_007_POM RETC_007;
 	private static Properties properties;
 	//private ScreenShot screenShot;
 
@@ -34,6 +36,7 @@ public class RETC_010_Test {
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		RETC_010 = new RETC_010_POM(driver); 
+		RETC_007 = new RETC_007_POM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		//screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -54,5 +57,8 @@ public class RETC_010_Test {
 		RETC_010.sendSubject("apartments");
 		RETC_010.sendMessage("looking for an apartments");
 		RETC_010.ClickOnSend();
+		RETC_007.VerifyAssertion();
+		
+		
 	}
 }

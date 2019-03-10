@@ -25,6 +25,7 @@ public class RETC_008_Test {
 	private WebDriver driver;
 	private String baseUrl;
 	private RETC_008_POM RETC_008;
+	private RETC_007_POM RETC_007;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -38,7 +39,8 @@ public class RETC_008_Test {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		RETC_008 = new RETC_008_POM(driver); 
+		RETC_008 = new RETC_008_POM(driver);
+		RETC_007 = new RETC_007_POM(driver); 
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
@@ -51,17 +53,15 @@ public class RETC_008_Test {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() {
-		RETC_008.ClickOnApartmentTab();
-		RETC_008.ClickOnDoneQuisTab();
+	public void MortgageCalculator() {
+		RETC_007.ClickOnApartmentTab();
+		RETC_007.ClickOnDoneQuisTab();
 		RETC_008.sendSalesprice("400000");
 		RETC_008.SendDownPayment("20000");
 		RETC_008.SendLoanTerm("20");
 		RETC_008.SendInterestrate("7.25");
 		RETC_008.ClickOnCalculateButton();
+		RETC_008.VerifyAssertion();
 		
-		String ActualMsg="Monthly Payment: 3003.43 Rs.";
-				String exp=driver.findElement(By.xpath("//div[@class='notification success']")).getText();
-				assertEquals(ActualMsg, exp);
 	}
 }

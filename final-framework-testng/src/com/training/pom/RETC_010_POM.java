@@ -17,6 +17,11 @@ public class RETC_010_POM {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	/*
+	 * This POM file consist of WebElement and methods to Send details in the contact form by clicking on DropUsALine when user does not
+	 * find any details in realstate application.
+	 */
 
 	@FindBy(linkText = "BLOG")
 	private WebElement blog;

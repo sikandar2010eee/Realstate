@@ -11,7 +11,7 @@ import com.training.readexcel.ReadExcel;
 
 public class LoginDataProviders {
 
-	@DataProvider(name = "db-inputs")
+	@DataProvider(name = "db-inputs") 
 	public Object [][] getDBData() {
 
 		List<LoginBean> list = new ELearningDAO().getLogins(); 
@@ -22,7 +22,6 @@ public class LoginDataProviders {
 			Object[]  obj = new Object[2]; 
 			obj[0] = temp.getUserName(); 
 			obj[1] = temp.getPassword(); 
-			
 			result[count ++] = obj; 
 		}
 		
@@ -32,7 +31,7 @@ public class LoginDataProviders {
 	
 	@DataProvider(name = "excel-inputs")
 	public Object[][] getExcelData(){
-		String fileName ="C:/Users/Naveen/Desktop/Testing.xlsx"; 
+		String fileName ="C:\\Users\\IBM_ADMIN\\Desktop\\RETD_004_TC1.xlsx"; 
 		return new ApachePOIExcelRead().getExcelContent(fileName); 
 	}
 	

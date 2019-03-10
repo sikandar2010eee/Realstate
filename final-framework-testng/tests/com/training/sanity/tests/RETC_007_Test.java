@@ -50,7 +50,8 @@ public class RETC_007_Test {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() {
+	//This test method will send the enquiry details to the realstate database server and will verify the success msg.
+	public void SendEnquiryDetailsAndVerifySuccessMsg() {
 		RETC_007.ClickOnApartmentTab();
 		RETC_007.ClickOnDoneQuisTab();
 		RETC_007.sendUserName("sikandar");
@@ -58,8 +59,6 @@ public class RETC_007_Test {
 		RETC_007.SendYourSubject("apartments");
 		RETC_007.Yourtext("looking for apartments");
 		RETC_007.ClickOnSendButton();
-		String exp="Thank you for your message. It has been sent.";
-		String actual=driver.findElement(By.xpath("//div[@class='wpcf7-response-output wpcf7-display-none wpcf7-mail-sent-ng']")).getText();
-		assertEquals(actual, exp);
+		RETC_007.VerifyAssertion();
 	}
 }

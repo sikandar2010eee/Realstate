@@ -4,79 +4,79 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class RETC_009_POM {
-	
-private WebDriver driver; 
-	
+
+	private WebDriver driver;
+
 	public RETC_009_POM(WebDriver driver) {
-		this.driver = driver; 
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(linkText="APARTMENTS")
-	private WebElement ApartmentTab; 
-	
-	
-	//@FindBy(xpath="//div[@data-title='RETC_051_3']/a")
-	//private WebElement  DoneQuis;
-	
-	@FindBy(xpath="//input[@id='keyword_search']")
-	private WebElement Address;
-	
-	
-	@FindBy(xpath="//a[@class='chosen-single chosen-default']/span[contains(text(),'Property type')]")//need to write method to send keys
-	private WebElement Propertype;
-	
-	@FindBy(xpath="//ul[@class='chosen-results']/li[4]")//need to write method to send keys
-	private WebElement Plots;
-	
-	
-	@FindBy(xpath="//a[@class='chosen-single chosen-default']/span[contains(text(),'Any Regions')]")//need to write method to sen keys
-	private WebElement Region;
-	
-	
-	@FindBy(xpath="//ul[@class='chosen-results']/li[6]")
-	private WebElement ChooseRegion;//need to write method to click on send button
-	
-	@FindBy(xpath="//button[@class='button fullwidth']")
-	private WebElement SearchButton;//need to write method to click on send button
-	
-	
-	public void ClickOnApartmentTab() {
-		
-		this.ApartmentTab.click();
-	}
-	
+	/*
+	 * This POM file consist of WebElement and methods to search property details by entering Address details and assertion to verify search results
+	 * in realstate application.
+	 */
 
+	@FindBy(xpath = "//input[@id='keyword_search']")
+	private WebElement Address;
+
+	@FindBy(xpath = "//a[@class='chosen-single chosen-default']/span[contains(text(),'Property type')]") 
+	private WebElement Propertype;
+
+	@FindBy(xpath = "//ul[@class='chosen-results']/li[4]") // need to write method to send keys
+	private WebElement Plots;
+
+	@FindBy(xpath = "//a[@class='chosen-single chosen-default']/span[contains(text(),'Any Regions')]") 
+
+	private WebElement Region;
+
+	@FindBy(xpath = "//ul[@class='chosen-results']/li[6]")
+	private WebElement ChooseRegion;
+
+	@FindBy(xpath = "//button[@class='button fullwidth']")
+	private WebElement SearchButton;
 	
+	@FindBy(xpath="//h1[contains(text(),'Region: Apartments')]")
+	private WebElement SearchResults;
+
 	public void sendAddress(String address) {
-		this.Address.clear(); 
-		this.Address.sendKeys(address); 
+		this.Address.clear();
+		this.Address.sendKeys(address);
 	}
-	
-public void ClickOnProperty() {
-		
+
+	public void ClickOnProperty() {
+
 		this.Propertype.click();
 	}
 
-public void ClickOnPlots() {
-	
-	this.Plots.click();
-}
+	public void ClickOnPlots() {
 
-public void ClickOnRegion() {
-	
-	this.Region.click();
-}
+		this.Plots.click();
+	}
 
-public void SelectRegion() {
-	this.ChooseRegion.click();
-}
+	public void ClickOnRegion() {
 
-public void ClickonSerachButton() {
-	this.SearchButton.click();
-}
+		this.Region.click();
+	}
+
+	public void SelectRegion() {
+		this.ChooseRegion.click();
+	}
+
+	public void ClickonSerachButton() {
+		this.SearchButton.click();
+	}
+	
+	public void VerifySearchResults() {
+		String Expected="Region: Apartments";
+		String Actual= this.SearchResults.getText();
+		System.out.println(Actual);
+		Assert.assertEquals(Actual, Expected);
+	}
 	
 	
+
 }
