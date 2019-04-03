@@ -30,7 +30,7 @@ public class RETC_036_POM {
 	@FindBy(xpath="//a[contains(text(),'quis nostrud exercitation ullamco laboris')]")
 	private WebElement Clicksearchinput;
 
-	@FindBy(linkText = "Drop Us a Line")
+	/*@FindBy(linkText = "Drop Us a Line")
 	private WebElement ContactUs;
 
 	@FindBy(xpath = "//input[@placeholder='Your Name']")
@@ -46,7 +46,7 @@ public class RETC_036_POM {
 	private WebElement MessageBox;
 
 	@FindBy(xpath = "//input[@value='Send']")
-	private WebElement SendButton;
+	private WebElement SendButton*/;
 
 	public void ClickOnVillas() {
 
@@ -71,7 +71,7 @@ public class RETC_036_POM {
 
 	}
 
-	public void ClickOnDropUsALine() {
+	/*public void ClickOnDropUsALine() {
 
 		this.ContactUs.click();
 
@@ -98,5 +98,5 @@ public class RETC_036_POM {
 	public void ClickOnSend() {
 		SendButton.click();
 	}
-
+*/
 }
