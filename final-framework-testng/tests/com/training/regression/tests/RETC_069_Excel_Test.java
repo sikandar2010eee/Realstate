@@ -55,8 +55,8 @@ public class RETC_069_Excel_Test {
 
 	@Test(dataProvider = "excel-inputs", dataProviderClass = LoginDataProviders.class)
 	public void loginDBTest(String salesprice, String downpayment,String loanterm,String InterestRate) {
-		RETC_008.ClickOnApartmentTab();
-		RETC_008.ClickOnDoneQuisTab();
+		//RETC_008.ClickOnApartmentTab();
+		//RETC_008.ClickOnDoneQuisTab();
 		RETC_008.sendSalesprice(salesprice);
 		RETC_008.SendDownPayment(downpayment);
 		RETC_008.SendLoanTerm(loanterm);

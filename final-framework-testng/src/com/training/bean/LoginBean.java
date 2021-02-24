@@ -1,5 +1,7 @@
 package com.training.bean;
-
+/*
+ * This class will store the data from Database and will the return the data.
+ */
 public class LoginBean {
 	private String userName;
 	private String password;
