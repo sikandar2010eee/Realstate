@@ -4,6 +4,8 @@ package com.training.bean;
  * 
  * @author Naveen
  * @see this class shall get the bean data 
+ * 
+ * this class is used to get all the required value for setting up Database connection.
  */
 public class DBBean {
 	private String url; 

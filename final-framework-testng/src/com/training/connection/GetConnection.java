@@ -7,7 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.training.bean.DBBean;
-
+/*
+ * this class is for estalishing the connection to the database.The method used to establish the connect 
+ * will accept the DB bean object as its arguments.
+ * 
+ */
 public class GetConnection {
 	static Connection connection; 
 	public PreparedStatement ps1, ps2; 

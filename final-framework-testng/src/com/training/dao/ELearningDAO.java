@@ -12,6 +12,10 @@ import com.training.connection.GetConnection;
 import com.training.utility.LoadDBDetails;
 
 // Data Access Object 
+/*this class will do return DB data as a list.
+ * 
+ */
+
 public class ELearningDAO {
 	
 	Properties properties; 
@@ -30,29 +34,29 @@ public class ELearningDAO {
 	public List<LoginBean> getLogins(){
 		String sql = properties.getProperty("get.logins"); 
 		
-		GetConnection gc  = new GetConnection(); 
-		List<LoginBean> list = null;
+		GetConnection gc  = new GetConnection(); //creating object of GetConnection
+		List<LoginBean> list = null;//list of type LoginBean objects----
 		try {
 			gc.ps1 = GetConnection.getMySqlConnection(LoadDBDetails.getDBDetails()).prepareStatement(sql); 
-			list = new ArrayList<LoginBean>(); 
+			list = new ArrayList<LoginBean>(); //created an object of ArrayList of type LoginBean.
 			
 			gc.rs1 = gc.ps1.executeQuery(); 
 			
-			while(gc.rs1.next()) {
+			while(gc.rs1.next()) {// here u r checking the records in the DB
 			
-				LoginBean temp = new LoginBean(); 
-				temp.setUserName(gc.rs1.getString(1));
-				temp.setPassword(gc.rs1.getString(2));
+				LoginBean temp = new LoginBean(); //here u have created an object of Loginbean which is call used to hold the values from DB.
+				temp.setUserName(gc.rs1.getString(1));// here username from the DB is passed to the DB bean variable.from column 1
+				temp.setPassword(gc.rs1.getString(2));//another variable password from the DB is stored in DB bean variable.from column2
 				
 
-				list.add(temp); 
+				list.add(temp); //storing the LoginBean objects in the List.
 				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return list; 
+		return list; //the whole method is returning object of Login bean that is all values from the database.
 	}
 	
 	public static void main(String[] args) {

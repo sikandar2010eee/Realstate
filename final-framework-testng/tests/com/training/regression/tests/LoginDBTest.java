@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -65,6 +66,8 @@ public class LoginDBTest {
 		loginPOM.clickLoginBtn();
 		
 		screenShot.captureScreenShot(userName);
+		
+		
 
 	}
 
