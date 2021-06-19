@@ -52,5 +52,6 @@ public class LoginTests {
 		loginPOM.sendPassword("sik_2010");
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
+		system.out.println:
 	}
 }
