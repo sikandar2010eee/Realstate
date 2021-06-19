@@ -53,5 +53,6 @@ public class LoginTests {
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
 		system.out.println:
+		sys
 	}
 }
