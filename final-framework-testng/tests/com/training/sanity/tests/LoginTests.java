@@ -54,12 +54,16 @@ public class LoginTests {
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		system.out.println:
 		sys
 
 		
 
+=======
+		System.out.println("testing");
+>>>>>>> stash
 =======
 		System.out.println("testing");
 >>>>>>> stash
