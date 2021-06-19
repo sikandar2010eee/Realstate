@@ -53,11 +53,15 @@ public class LoginTests {
 		loginPOM.sendPassword("sik_2010");
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
+<<<<<<< HEAD
 
 		system.out.println:
 		sys
 
-		System.out.println("testing");
+		
 
+=======
+		System.out.println("testing");
+>>>>>>> stash
 	}
 }
