@@ -33,18 +33,19 @@ public class LoginTests {
 	@BeforeMethod
 	public void setUp() throws Exception {
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		loginPOM = new LoginPOM(driver); 
+		loginPOM = new LoginPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
-		// open the browser 
+		screenShot = new ScreenShot(driver);
+		// open the browser
 		driver.get(baseUrl);
 	}
-	
+
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
 	}
+
 	@Test
 	public void validLoginTest() {
 		loginPOM.LogInClick();
@@ -52,7 +53,11 @@ public class LoginTests {
 		loginPOM.sendPassword("sik_2010");
 		loginPOM.clickLoginBtn(); 
 		screenShot.captureScreenShot("First");
+
 		system.out.println:
 		sys
+
+		System.out.println("testing");
+
 	}
 }
