@@ -1,1 +1,2 @@
 Adding files in the master branch which is not there in the local master.
+Editing the add2 file in master
